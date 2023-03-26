@@ -1,0 +1,17 @@
+.gitignore
+README.md
+api.module.ts
+api/acceptHeaderOpenApiResource.service.ts
+api/api.ts
+api/bookResource.service.ts
+api/default.service.ts
+api/openApiResource.service.ts
+configuration.ts
+encoder.ts
+git_push.sh
+index.ts
+model/book.ts
+model/models.ts
+model/person.ts
+param.ts
+variables.ts

@@ -1,0 +1,127 @@
+{
+  "openapi" : "3.0.3",
+  "info" : {
+    "title" : "Bookstore API",
+    "description" : "Bookstore API",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8081",
+    "description" : "Auto generated value"
+  }, {
+    "url" : "http://0.0.0.0:8081",
+    "description" : "Auto generated value"
+  } ],
+  "paths" : {
+    "/api/book" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/api/book/books" : {
+      "get" : {
+        "tags" : [ "Book Resource" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Book"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/openapi" : {
+      "get" : {
+        "tags" : [ "Accept Header Open Api Resource" ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/openapi.{type}" : {
+      "get" : {
+        "tags" : [ "Open Api Resource" ],
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "pattern" : "json|yaml",
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Book" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "author" : {
+            "$ref" : "#/components/schemas/Person"
+          },
+          "pages" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "available" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "Person" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "firstname" : {
+            "type" : "string"
+          },
+          "lastname" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
